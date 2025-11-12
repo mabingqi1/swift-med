@@ -1,0 +1,10 @@
+# pod_name: mbq-head-tt79k-intern35vl-4b-lora2--train
+pod_name: mbq-head-tt79k-intern35vl-4b-lora-res448--train
+cmd: bash /yinghepool/mabingqi/ms-swift/scripts/intern_train.sh
+# cmd: bash /yinghepool/mabingqi/ms-swift/scripts/qwen_train.sh
+# gpu_name: "NVIDIA-H100-80GB-HBM3"
+gpu_name: "NVIDIA-H200"
+gpu_num: 8
+namespace: mlops
+container_name: pytorch
+image_name: 172.16.2.121:30002/library/mmengine-base:0.14
