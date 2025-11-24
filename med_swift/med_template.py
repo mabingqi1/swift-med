@@ -16,7 +16,6 @@ from med_swift.med_data.transforms import ResizeOnly
 
 class MedIntern3_5VLTemplate(InternvlTemplate):
     """ 使用video的方式让InternVL 3.5支持medical图像
-    - 处理数据读取和数据增强(先不考虑数据增强)
     """
     def _get_system(self, inputs: StdTemplateInputs) -> str:
         """忽略 system，返回空字符串"""

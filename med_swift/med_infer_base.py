@@ -26,7 +26,7 @@ class MedSwiftInference:
         self.engine = PtEngine(
             **infer_args,
             device_map=device,
-            model_type="internvl3_5"
+            # model_type="internvl3_5" # for internvl3_5
         )
 
     @staticmethod

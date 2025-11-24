@@ -10,31 +10,29 @@ cd /yinghepool/mabingqi/ms-swift
 
 nproc_per_node=8
 NPROC_PER_NODE=$nproc_per_node \
-INPUT_SIZE=448 \
-VIDEO_SEGMENTS=32 \
+INPUT_SIZE=336 \
+VIDEO_SEGMENTS=70 \
 swift sft \
     --custom_register_path med_swift/med_template.py \
     --model /yinghepool/mabingqi/hf_cache/Intern3.5VL-4B \
     --model_type internvl3_5 \
     --template med-InternVL3_5 \
-    --dataset /yinghepool/zhangshuheng/codes/train/our-report/case_list/20251101-tiantan-train-V1.jsonl \
+    --dataset /yinghepool/mabingqi/dataset/vlm/head_report/tiantan/series_level/tt79k_ym122k_QwenTemplate_ImpressionOnly-train.jsonl \
     --val_dataset /yinghepool/zhangshuheng/codes/train/our-report/case_list/20251101-tiantan-test-V1.jsonl \
-    --output_dir output/HeadReport_tt79k_InternVL3.5-4B-lora-res \
-    --num_train_epochs 8 \
-    --per_device_train_batch_size 3 \
+    --output_dir output/HeadReport_tt79k-ym122k_InternVL3.5-4B-lora \
+    --num_train_epochs 6 \
+    --per_device_train_batch_size 4 \
     --per_device_eval_batch_size 1 \
-    --learning_rate 5e-5 \
-    --vit_lr 1e-4 \
-    --aligner_lr 2e-4 \
+    --learning_rate 2e-4 \
     --freeze_vit false \
     --freeze_llm false \
     --freeze_aligner false \
     --train_type lora \
     --use_rslora true \
-    --lora_rank 16 \
-    --lora_alpha 32 \
+    --lora_rank 32 \
+    --lora_alpha 64 \
     --target_modules all-linear \
-    --gradient_accumulation_steps $(expr 16 / $nproc_per_node) \
+    --gradient_accumulation_steps $(expr 32 / $nproc_per_node) \
     --eval_steps 500 \
     --save_steps 500 \
     --save_total_limit 5 \

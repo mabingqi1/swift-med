@@ -7,7 +7,7 @@ from easydict import EasyDict
 class InferArguments(EasyDict):
     model_id_or_path: str = None
     adapters: List[str] = None
-    max_batch_size: int = 8
+    max_batch_size: int = 32
     attn_impl: str = "flash_attn"
     video_name: str = "zst_path"
     image_name: str = None

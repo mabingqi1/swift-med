@@ -1,7 +1,5 @@
-# pod_name: mbq-head-tt79k-intern35vl-4b-lora2--train
-pod_name: mbq-head-tt79k-intern35vl-4b-lora-res448--train
-cmd: bash /yinghepool/mabingqi/ms-swift/scripts/intern_train.sh
-# cmd: bash /yinghepool/mabingqi/ms-swift/scripts/qwen_train.sh
+pod_name: mbq-head-tt79kym122k-impre-qwen3vl-4b-rslora--train
+cmd: bash /yinghepool/mabingqi/ms-swift/scripts/qwen_train.sh
 # gpu_name: "NVIDIA-H100-80GB-HBM3"
 gpu_name: "NVIDIA-H200"
 gpu_num: 8
