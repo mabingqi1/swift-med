@@ -15,7 +15,7 @@ from med_swift.med_data.io import read_zst
 from med_swift.med_data.transforms import ResizeOnly
 
 class MedIntern3_5VLTemplate(InternvlTemplate):
-    """ 使用video的方式让InternVL 3.5支持medical图像
+    """ Intern3.5vl Template
     """
     def _get_system(self, inputs: StdTemplateInputs) -> str:
         """忽略 system，返回空字符串"""
