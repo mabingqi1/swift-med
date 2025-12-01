@@ -27,5 +27,5 @@ rm -rf ~/.cache/modelscope/hub/
 python scripts/infer.py \
     --output_dir /yinghepool/mabingqi/ms-swift/output/HeadReport_tt79k-ym122k-ImpressionOnly_Qwen3-VL-4B-rslora \
     --dir_save /yinghepool/mabingqi/ms-swift/output/HeadReport_tt79k-ym122k-ImpressionOnly_Qwen3-VL-4B-rslora \
-    --path_jsonl /yinghepool/mabingqi/dataset/vlm/head_report/tiantan/series_level/tt79k_QwenTemplate_ImpressionOnly-test-raw.jsonl \
-    --ckpt_use /yinghepool/mabingqi/ms-swift/output/HeadReport_tt79k-ym122k-ImpressionOnly_Qwen3-VL-4B-rslora/checkpoint-10500 \
+    --path_jsonl /yinghepool/mm-data/report/tiantan/20250926-tiantan10w/tiantan_head_7.9w_meta_stdWindow_clean-test.jsonl \
+    --ckpt_use /yinghepool/mabingqi/ms-swift/output/HeadReport_tt79k-ym122k-BaichuanImpression_Qwen3-VL-4B/checkpoint-5232 \

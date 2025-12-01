@@ -18,9 +18,9 @@ IMAGE_MAX_TOKEN_NUM=1024 \
 FPS_MAX_FRAMES=64 \
 swift sft \
     --model /yinghepool/zhangshuheng/models/Qwen3-VL-4B-Instruct \
-    --dataset /yinghepool/mabingqi/dataset/vlm/head_report/tiantan/series_level/tt79k_ym122k_QwenTemplate_ImpressionOnly-train.jsonl \
-    --val_dataset /yinghepool/mabingqi/dataset/vlm/head_report/tiantan/series_level/tt79k_QwenTemplate_ImpressionOnly-test.jsonl \
-    --output_dir output/HeadReport_tt79k-ym122k-ImpressionOnly_Qwen3-VL-4B-rslora \
+    --dataset /yinghepool/mabingqi/dataset/vlm/head_report/tiantan/series_level/tt79k_ym122k_BaiChuanAISU-QwenTemplate-train.jsonl \
+    --val_dataset /yinghepool/zhangshuheng/codes/train/our-report/case_list/20251101-tiantan-test-V1.jsonl \
+    --output_dir output/HeadReport_tt79k-ym122k-BaichuanImpression_Qwen3-VL-4B \
     --add_version false \
     --overwrite_output_dir true \
     --torch_dtype bfloat16 \

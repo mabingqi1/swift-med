@@ -20,7 +20,7 @@ from openai import OpenAI
 default_abnorm_list = [
   '囊肿', '水肿', '破入脑室', '硬膜下积液', '硬膜下血肿', '硬膜外血肿', '缺血性白质病变', '脂肪瘤', 
   '脑出血', '脑挫裂伤', '脑梗死', '脑疝', '脑肿物', '脑萎缩', '腔隙性脑梗死', '蛛网膜下腔出血', 
-  '软化灶', '钙化', '颅外疝'
+  '软化灶', '钙化'
 ]
 
 default_prompt_template = """
@@ -29,6 +29,7 @@ default_prompt_template = """
 - **重要**请严格输出疾病列表中存在的疾病名称，不要输出不存在的疾病名称。
 - 报告中的疾病带解剖部位或位置信息，需去掉解剖部位或位置信息后与疾病列表匹配。
 - 在报告内容中疾病名字可能有变化，要简单分析。
+- 腔隙灶等价于腔隙性脑梗死。
 - 老年脑等价于脑萎缩。
 - 缺血性脑白质病变等价于缺血性白质病变。
 - 脑水肿等价于水肿。
@@ -137,12 +138,14 @@ class ReportPerformanceComputor:
         for name in self.config.abnorm_list:
             curr_gt = np.array(df_gt[name].tolist())
             curr_pred = np.array(df_pred[name].tolist())
+
             N_tp = ((curr_gt == 1) & (curr_pred == 1)).sum()
             N_tn = ((curr_gt == 0) & (curr_pred == 0)).sum()
             N_fp = ((curr_gt == 0) & (curr_pred == 1)).sum()
             N_fn = ((curr_gt == 1) & (curr_pred == 0)).sum()
-            recall = round(N_tp / (N_tp + N_fn + 1e-5), 4)
-            precision = round(N_tp / (N_tp + N_fp + 1e-5), 4)
+
+            recall = round(N_tp / (N_tp + N_fn + 1e-6), 4)
+            precision = round(N_tp / (N_tp + N_fp + 1e-6), 4)
             f1 = round(2 * (precision * recall) / (precision + recall + 1e-6), 4)
             infos.append(dict(
                 name=name,
